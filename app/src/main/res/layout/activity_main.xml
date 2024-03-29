@@ -6,113 +6,200 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="132dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/keyboard" />
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/view2"
         android:layout_width="48dp"
         android:layout_height="117dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="130dp"
         android:background="#00000000"
-        tools:layout_editor_absoluteX="62dp"
-        tools:layout_editor_absoluteY="357dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view1" />
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/view12"
         android:layout_width="42dp"
         android:layout_height="117dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginBottom="3dp"
         android:background="#00000000"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="238dp" />
+        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/view11"
         android:layout_width="42dp"
         android:layout_height="116dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="3dp"
         android:background="#00000000"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="237dp" />
+        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintStart_toEndOf="@+id/view12" />
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/view10"
         android:layout_width="41dp"
         android:layout_height="117dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginBottom="3dp"
         android:background="#00000000"
-        tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="237dp" />
+        app:layout_constraintBottom_toTopOf="@+id/view5"
+        app:layout_constraintStart_toEndOf="@+id/view11" />
 
     <View
-        android:id="@+id/view3"
-        android:layout_width="39dp"
-        android:layout_height="116dp"
+        android:id="@+id/view9"
+        android:layout_width="45dp"
+        android:layout_height="113dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="1dp"
         android:background="#00000000"
-        tools:layout_editor_absoluteX="263dp"
-        tools:layout_editor_absoluteY="237dp" />
+        app:layout_constraintBottom_toTopOf="@+id/view6"
+        app:layout_constraintStart_toEndOf="@+id/view10" />
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/view8"
         android:layout_width="46dp"
         android:layout_height="114dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="2dp"
         android:background="#00000000"
-        tools:layout_editor_absoluteX="315dp"
-        tools:layout_editor_absoluteY="237dp" />
+        app:layout_constraintBottom_toTopOf="@+id/view6"
+        app:layout_constraintStart_toEndOf="@+id/view9" />
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/view7"
         android:layout_width="48dp"
         android:layout_height="117dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="132dp"
         android:background="#00000000"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="357dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view6" />
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/view6"
         android:layout_width="48dp"
         android:layout_height="117dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="130dp"
         android:background="#00000000"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="357dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view5" />
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/view5"
         android:layout_width="48dp"
         android:layout_height="117dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="130dp"
         android:background="#00000000"
-        tools:layout_editor_absoluteX="227dp"
-        tools:layout_editor_absoluteY="357dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view4" />
 
     <View
         android:id="@+id/view4"
         android:layout_width="52dp"
         android:layout_height="117dp"
-        android:layout_marginStart="4dp"
-        android:background="@drawable/rectangle"
-        app:layout_constraintStart_toEndOf="@+id/view3"
-        tools:layout_editor_absoluteY="357dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="130dp"
+        android:background="#00000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view3" />
 
     <View
-        android:id="@+id/view2"
+        android:id="@+id/view3"
         android:layout_width="48dp"
         android:layout_height="116dp"
-        android:layout_marginStart="4dp"
-        android:background="@drawable/rectangle"
-        app:layout_constraintStart_toEndOf="@+id/view4"
-        tools:layout_editor_absoluteY="358dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="131dp"
+        android:background="#00000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view2" />
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/view1"
         android:layout_width="46dp"
         android:layout_height="117dp"
         android:layout_marginStart="12dp"
-        android:background="@drawable/rectangle"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="357dp" />
+        android:layout_marginBottom="129dp"
+        android:background="#00000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView2"
+
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/keyboard"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="163dp"
+        android:text="Ev3 Keyboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/vv_fileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="45dp"
+        android:text="Sound File"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/vv_tuneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="45dp"
+        android:text="Play a Tune"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/vv_txtDebug"
+        android:layout_width="67dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="88dp"
+        android:text="Hello"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/vv_tvOut1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="94dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vv_txtDebug" />
+
+    <TextView
+        android:id="@+id/vv_tvOut2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="96dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vv_tvOut1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

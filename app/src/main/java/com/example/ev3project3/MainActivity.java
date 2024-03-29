@@ -3,6 +3,7 @@ package com.example.ev3project3;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.core.app.ActivityCompat;
@@ -50,10 +51,17 @@ public class MainActivity extends AppCompatActivity {
     TextView cv_label01;
     TextView cv_label02;
 
-    SeekBar speedbar;
+    TextView cv_txtDebug;
+
+    Button cv_fileButton;
+    Button cv_tuneButton;
+    //SeekBar speedbar;
+
+    /*
     boolean bkwdButtonHeld = false;
     boolean fdwButtonHeld = false;
     private boolean isBackwards = false;
+    */
     private boolean isConnected = false;
 
     @Override
@@ -71,14 +79,334 @@ public class MainActivity extends AppCompatActivity {
         int initialValue = 50; // This is the initial value you want to set
         speedbar.setProgress(initialValue);
         */
-
-
+        cv_label01 = (TextView) findViewById(R.id.vv_tvOut1);
+        cv_label02 = (TextView) findViewById(R.id.vv_tvOut2);
+        cv_fileButton = (Button) findViewById(R.id.vv_fileButton);
+        cv_tuneButton = (Button) findViewById(R.id.vv_tuneButton);
+        cv_txtDebug = (TextView) findViewById(R.id.vv_txtDebug);
         // Need grant permission once per install
         cpf_checkBTPermissions();
 
 
+        cv_fileButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                cpf_playFile();
+                return true;
+            }
+        });
 
+        cv_tuneButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                playTune();
+                return true;
+            }
+        });
 
+        View view1 = findViewById(R.id.view1);
+        View view2 = findViewById(R.id.view2);
+        View view3 = findViewById(R.id.view3);
+        View view4 = findViewById(R.id.view4);
+        View view5 = findViewById(R.id.view5);
+        View view6 = findViewById(R.id.view6);
+        View view7 = findViewById(R.id.view7);
+        View view8 = findViewById(R.id.view8);
+        View view9 = findViewById(R.id.view9);
+        View view10 = findViewById(R.id.view10);
+        View view11 = findViewById(R.id.view11);
+        View view12 = findViewById(R.id.view12);
+
+        //low c
+        view1.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // User starts pressing down
+                        v.setBackgroundColor(Color.parseColor("#800080")); // Set to purple
+                        cpf_EV3CNote(); // Play the sound immediately on touch
+                        // Return false to allow the event to propagate (if you have other listeners you want to trigger)
+                        return true; // If you don't need further handling, return true
+                    case MotionEvent.ACTION_UP:
+                        // User releases the view
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        // Return false if you want the onClick to trigger after the touch, otherwise return true
+                        return true;
+                    case MotionEvent.ACTION_CANCEL:
+                        // In case the touch event gets canceled
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        return true;
+                }
+                return true;
+            }
+        });
+
+        view2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // User starts pressing down
+                        v.setBackgroundColor(Color.parseColor("#800080")); // Set to purple
+                        cpf_EV3DNote(); // Play the sound immediately on touch
+                        // Return false to allow the event to propagate (if you have other listeners you want to trigger)
+                        return true; // If you don't need further handling, return true
+                    case MotionEvent.ACTION_UP:
+                        // User releases the view
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        // Return false if you want the onClick to trigger after the touch, otherwise return true
+                        return true;
+                    case MotionEvent.ACTION_CANCEL:
+                        // In case the touch event gets canceled
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        return true;
+                }
+                return true;
+            }
+        });
+
+        view3.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // User starts pressing down
+                        v.setBackgroundColor(Color.parseColor("#800080")); // Set to purple
+                        cpf_EV3ENote(); // Play the sound immediately on touch
+                        // Return false to allow the event to propagate (if you have other listeners you want to trigger)
+                        return true; // If you don't need further handling, return true
+                    case MotionEvent.ACTION_UP:
+                        // User releases the view
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        // Return false if you want the onClick to trigger after the touch, otherwise return true
+                        return true;
+                    case MotionEvent.ACTION_CANCEL:
+                        // In case the touch event gets canceled
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        return true;
+                }
+                return true;
+            }
+        });
+
+        view4.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // User starts pressing down
+                        v.setBackgroundColor(Color.parseColor("#800080")); // Set to purple
+                        cpf_EV3FNote(); // Play the sound immediately on touch
+                        // Return false to allow the event to propagate (if you have other listeners you want to trigger)
+                        return true; // If you don't need further handling, return true
+                    case MotionEvent.ACTION_UP:
+                        // User releases the view
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        // Return false if you want the onClick to trigger after the touch, otherwise return true
+                        return true;
+                    case MotionEvent.ACTION_CANCEL:
+                        // In case the touch event gets canceled
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        return true;
+                }
+                return true;
+            }
+        });
+
+        view5.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // User starts pressing down
+                        v.setBackgroundColor(Color.parseColor("#800080")); // Set to purple
+                        cpf_EV3GNote(); // Play the sound immediately on touch
+                        // Return false to allow the event to propagate (if you have other listeners you want to trigger)
+                        return true; // If you don't need further handling, return true
+                    case MotionEvent.ACTION_UP:
+                        // User releases the view
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        // Return false if you want the onClick to trigger after the touch, otherwise return true
+                        return true;
+                    case MotionEvent.ACTION_CANCEL:
+                        // In case the touch event gets canceled
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        return true;
+                }
+                return true;
+            }
+        });
+
+        view6.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // User starts pressing down
+                        v.setBackgroundColor(Color.parseColor("#800080")); // Set to purple
+                        cpf_EV3ANote(); // Play the sound immediately on touch
+                        // Return false to allow the event to propagate (if you have other listeners you want to trigger)
+                        return true; // If you don't need further handling, return true
+                    case MotionEvent.ACTION_UP:
+                        // User releases the view
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        // Return false if you want the onClick to trigger after the touch, otherwise return true
+                        return true;
+                    case MotionEvent.ACTION_CANCEL:
+                        // In case the touch event gets canceled
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        return true;
+                }
+                return true;
+            }
+        });
+
+        view7.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // User starts pressing down
+                        v.setBackgroundColor(Color.parseColor("#800080")); // Set to purple
+                        cpf_EV3BNote(); // Play the sound immediately on touch
+                        // Return false to allow the event to propagate (if you have other listeners you want to trigger)
+                        return true; // If you don't need further handling, return true
+                    case MotionEvent.ACTION_UP:
+                        // User releases the view
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        // Return false if you want the onClick to trigger after the touch, otherwise return true
+                        return true;
+                    case MotionEvent.ACTION_CANCEL:
+                        // In case the touch event gets canceled
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        return true;
+                }
+                return true;
+            }
+        });
+
+        view8.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // User starts pressing down
+                        v.setBackgroundColor(Color.parseColor("#800080")); // Set to purple
+                        cpf_EV3ASharpNote(); // Play the sound immediately on touch
+                        // Return false to allow the event to propagate (if you have other listeners you want to trigger)
+                        return true; // If you don't need further handling, return true
+                    case MotionEvent.ACTION_UP:
+                        // User releases the view
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        // Return false if you want the onClick to trigger after the touch, otherwise return true
+                        return true;
+                    case MotionEvent.ACTION_CANCEL:
+                        // In case the touch event gets canceled
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        return true;
+                }
+                return true;
+            }
+        });
+
+        view9.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // User starts pressing down
+                        v.setBackgroundColor(Color.parseColor("#800080")); // Set to purple
+                        cpf_EV3GSharpNote(); // Play the sound immediately on touch
+                        // Return false to allow the event to propagate (if you have other listeners you want to trigger)
+                        return true; // If you don't need further handling, return true
+                    case MotionEvent.ACTION_UP:
+                        // User releases the view
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        // Return false if you want the onClick to trigger after the touch, otherwise return true
+                        return true;
+                    case MotionEvent.ACTION_CANCEL:
+                        // In case the touch event gets canceled
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        return true;
+                }
+                return true;
+            }
+        });
+
+        view10.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // User starts pressing down
+                        v.setBackgroundColor(Color.parseColor("#800080")); // Set to purple
+                        cpf_EV3FSharpNote(); // Play the sound immediately on touch
+                        // Return false to allow the event to propagate (if you have other listeners you want to trigger)
+                        return true; // If you don't need further handling, return true
+                    case MotionEvent.ACTION_UP:
+                        // User releases the view
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        // Return false if you want the onClick to trigger after the touch, otherwise return true
+                        return true;
+                    case MotionEvent.ACTION_CANCEL:
+                        // In case the touch event gets canceled
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        return true;
+                }
+                return true;
+            }
+        });
+
+        view11.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // User starts pressing down
+                        v.setBackgroundColor(Color.parseColor("#800080")); // Set to purple
+                        cpf_EV3DSharpNote(); // Play the sound immediately on touch
+                        // Return false to allow the event to propagate (if you have other listeners you want to trigger)
+                        return true; // If you don't need further handling, return true
+                    case MotionEvent.ACTION_UP:
+                        // User releases the view
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        // Return false if you want the onClick to trigger after the touch, otherwise return true
+                        return true;
+                    case MotionEvent.ACTION_CANCEL:
+                        // In case the touch event gets canceled
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        return true;
+                }
+                return true;
+            }
+        });
+
+        view12.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // User starts pressing down
+                        v.setBackgroundColor(Color.parseColor("#800080")); // Set to purple
+                        cpf_EV3CSharpNote(); // Play the sound immediately on touch
+                        // Return false to allow the event to propagate (if you have other listeners you want to trigger)
+                        return true; // If you don't need further handling, return true
+                    case MotionEvent.ACTION_UP:
+                        // User releases the view
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        // Return false if you want the onClick to trigger after the touch, otherwise return true
+                        return true;
+                    case MotionEvent.ACTION_CANCEL:
+                        // In case the touch event gets canceled
+                        v.setBackgroundColor(Color.parseColor("#00000000")); // Reset to transparent or any other initial color
+                        return true;
+                }
+                return true;
+            }
+        });
+
+        /*
         speedbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -97,6 +425,8 @@ public class MainActivity extends AppCompatActivity {
                 // And here you can implement some action when the user releases the SeekBar
             }
         });
+        */
+
     }
 
 //    private void moveForward(){
@@ -144,7 +474,6 @@ public class MainActivity extends AppCompatActivity {
             cpf_connectToEV3(cv_btDevice);
             return true;
         } else if (id == R.id.menu_fourth) {
-            cpf_EV3MoveMotor();
             return true;
         } else if (id == R.id.menu_fifth) {
             cpf_EV3PlayTone();
@@ -186,6 +515,26 @@ public class MainActivity extends AppCompatActivity {
             cv_label02.setText("BLUETOOTH_CONNECT NOT granted.\n");
         } else {
             cv_label02.setText("BLUETOOTH_CONNECT already granted.\n");
+        }
+    }
+
+    private void playTune() {
+        try {
+            cpf_EV3GNote();
+            Thread.sleep(500);
+            cpf_EV3GNote();
+            Thread.sleep(500);
+            cpf_EV3ANote();
+            Thread.sleep(500);
+            cpf_EV3GNote();
+            Thread.sleep(500);
+            cpf_EV3CNote();
+            Thread.sleep(500);
+            cpf_EV3BNote();
+            Thread.sleep(500);
+
+        } catch (Exception e) {
+            cv_txtDebug.setText("Error in playTune(" + e.getMessage() + ")");
         }
     }
 
@@ -305,7 +654,7 @@ public class MainActivity extends AppCompatActivity {
             cv_label02.setText("Error in disconnect -> " + e.getMessage());
         }
     }
-
+    /*
     private void cpf_EV3StopMotor(){
         try{
             byte[] buffer = new byte[11]; // 0x11 command length
@@ -376,10 +725,11 @@ public class MainActivity extends AppCompatActivity {
             cv_label01.setText("Error in Move(" + e.getMessage() + ")");
         }
     }
-
+    */
 
     // Communication Developer Kit Page 27
     // 4.2.2 Start motor B & C forward at power 50 for 3 rotation and braking at destination
+    /*
     private void cpf_EV3MoveMotor() {
         try {
             //byte[] buffer = new byte[15];       // 0x12 command length
@@ -488,7 +838,7 @@ public class MainActivity extends AppCompatActivity {
             cv_label01.setText("Error in MoveForward(" + e.getMessage() + ")");
         }
     }
-
+    */
     // 4.2.5 Play a 1Kz tone at level 2 for 1 sec.
     private void cpf_EV3PlayTone() {
         try {
@@ -523,7 +873,529 @@ public class MainActivity extends AppCompatActivity {
             cv_os.flush();
         }
         catch (Exception e) {
-            cv_label02.setText("Error in MoveForward(" + e.getMessage() + ")");
+            cv_label02.setText("Error in play tone(" + e.getMessage() + ")");
         }
     }
+
+    private void cpf_EV3ANote() {
+        try {
+            byte[] buffer = new byte[17];       // 0x0f command length
+
+            buffer[0] = (byte) (17-2);
+            buffer[1] = 0;
+
+            buffer[2] = 34;
+            buffer[3] = 12;
+
+            buffer[4] = (byte) 0x80;
+
+            buffer[5] = 0;
+            buffer[6] = 0;
+
+            buffer[7] = (byte) 0x94;
+            buffer[8] = 1;
+
+            buffer[9] = (byte) 0x81;
+            buffer[10] = (byte) 0x80;
+
+            buffer[11] = (byte) 0x82;
+            buffer[12] = (byte) 0xB8;
+            buffer[13] = (byte) 0x01;
+
+            buffer[14] = (byte) 0x82;
+            buffer[15] = (byte) 0xe8;
+            buffer[16] = (byte) 0x03;
+
+            cv_os.write(buffer);
+            cv_os.flush();
+        }
+        catch (Exception e) {
+            cv_txtDebug.setText("Error in play tone(" + e.getMessage() + ")");
+        }
+    }
+
+    private void cpf_EV3BNote() {
+        try {
+            byte[] buffer = new byte[17];       // 0x0f command length
+
+            buffer[0] = (byte) (17-2);
+            buffer[1] = 0;
+
+            buffer[2] = 34;
+            buffer[3] = 12;
+
+            buffer[4] = (byte) 0x80;
+
+            buffer[5] = 0;
+            buffer[6] = 0;
+
+            buffer[7] = (byte) 0x94;
+            buffer[8] = 1;
+
+            buffer[9] = (byte) 0x81;
+            buffer[10] = (byte) 0x80;
+
+            buffer[11] = (byte) 0x82;
+            buffer[12] = (byte) 0xED;
+            buffer[13] = (byte) 0x01;
+
+            buffer[14] = (byte) 0x82;
+            buffer[15] = (byte) 0xe8;
+            buffer[16] = (byte) 0x03;
+
+            cv_os.write(buffer);
+            cv_os.flush();
+        }
+        catch (Exception e) {
+            cv_txtDebug.setText("Error in play tone(" + e.getMessage() + ")");
+        }
+    }
+
+    private void cpf_EV3CNote() {
+        try {
+            byte[] buffer = new byte[17];       // 0x0f command length
+
+            buffer[0] = (byte) (17-2);
+            buffer[1] = 0;
+
+            buffer[2] = 34;
+            buffer[3] = 12;
+
+            buffer[4] = (byte) 0x80;
+
+            buffer[5] = 0;
+            buffer[6] = 0;
+
+            buffer[7] = (byte) 0x94;
+            buffer[8] = 1;
+
+            buffer[9] = (byte) 0x81;
+            buffer[10] = (byte) 0x80;
+
+            buffer[11] = (byte) 0x82;
+            buffer[12] = (byte) 0x05;
+            buffer[13] = (byte) 0x01;
+
+            buffer[14] = (byte) 0x82;
+            buffer[15] = (byte) 0xe8;
+            buffer[16] = (byte) 0x03;
+
+            cv_os.write(buffer);
+            cv_os.flush();
+        }
+        catch (Exception e) {
+            cv_txtDebug.setText("Error in play tone(" + e.getMessage() + ")");
+        }
+    }
+
+    private void cpf_EV3CHighNote() {
+        try {
+            byte[] buffer = new byte[17];       // 0x0f command length
+
+            buffer[0] = (byte) (17-2);
+            buffer[1] = 0;
+
+            buffer[2] = 34;
+            buffer[3] = 12;
+
+            buffer[4] = (byte) 0x80;
+
+            buffer[5] = 0;
+            buffer[6] = 0;
+
+            buffer[7] = (byte) 0x94;
+            buffer[8] = 1;
+
+            buffer[9] = (byte) 0x81;
+            buffer[10] = (byte) 0x80;
+
+            buffer[11] = (byte) 0x82;
+            buffer[12] = (byte) 0x0B;
+            buffer[13] = (byte) 0x02;
+
+            buffer[14] = (byte) 0x82;
+            buffer[15] = (byte) 0xe8;
+            buffer[16] = (byte) 0x03;
+
+            cv_os.write(buffer);
+            cv_os.flush();
+        }
+        catch (Exception e) {
+            cv_txtDebug.setText("Error in play tone(" + e.getMessage() + ")");
+        }
+    }
+
+    private void cpf_EV3DNote() {
+        try {
+            byte[] buffer = new byte[17];       // 0x0f command length
+
+            buffer[0] = (byte) (17-2);
+            buffer[1] = 0;
+
+            buffer[2] = 34;
+            buffer[3] = 12;
+
+            buffer[4] = (byte) 0x80;
+
+            buffer[5] = 0;
+            buffer[6] = 0;
+
+            buffer[7] = (byte) 0x94;
+            buffer[8] = 1;
+
+            buffer[9] = (byte) 0x81;
+            buffer[10] = (byte) 0x80;
+
+            buffer[11] = (byte) 0x82;
+            buffer[12] = (byte) 0x25;
+            buffer[13] = (byte) 0x01;
+
+            buffer[14] = (byte) 0x82;
+            buffer[15] = (byte) 0xe8;
+            buffer[16] = (byte) 0x03;
+
+            cv_os.write(buffer);
+            cv_os.flush();
+        }
+        catch (Exception e) {
+            cv_txtDebug.setText("Error in play tone(" + e.getMessage() + ")");
+        }
+    }
+
+
+    private void cpf_EV3ENote() {
+        try {
+            byte[] buffer = new byte[17];       // 0x0f command length
+
+            buffer[0] = (byte) (17-2);
+            buffer[1] = 0;
+
+            buffer[2] = 34;
+            buffer[3] = 12;
+
+            buffer[4] = (byte) 0x80;
+
+            buffer[5] = 0;
+            buffer[6] = 0;
+
+            buffer[7] = (byte) 0x94;
+            buffer[8] = 1;
+
+            buffer[9] = (byte) 0x81;
+            buffer[10] = (byte) 0x80;
+
+            buffer[11] = (byte) 0x82;
+            buffer[12] = (byte) 0x49;
+            buffer[13] = (byte) 0x01;
+
+            buffer[14] = (byte) 0x82;
+            buffer[15] = (byte) 0xe8;
+            buffer[16] = (byte) 0x03;
+
+            cv_os.write(buffer);
+            cv_os.flush();
+        }
+        catch (Exception e) {
+            cv_txtDebug.setText("Error in play tone(" + e.getMessage() + ")");
+        }
+    }
+
+    private void cpf_EV3FNote() {
+        try {
+            byte[] buffer = new byte[17];       // 0x0f command length
+
+            buffer[0] = (byte) (17-2);
+            buffer[1] = 0;
+
+            buffer[2] = 34;
+            buffer[3] = 12;
+
+            buffer[4] = (byte) 0x80;
+
+            buffer[5] = 0;
+            buffer[6] = 0;
+
+            buffer[7] = (byte) 0x94;
+            buffer[8] = 1;
+
+            buffer[9] = (byte) 0x81;
+            buffer[10] = (byte) 0x80;
+
+            buffer[11] = (byte) 0x82;
+            buffer[12] = (byte) 0x5D;
+            buffer[13] = (byte) 0x01;
+
+            buffer[14] = (byte) 0x82;
+            buffer[15] = (byte) 0xe8;
+            buffer[16] = (byte) 0x03;
+
+            cv_os.write(buffer);
+            cv_os.flush();
+        }
+        catch (Exception e) {
+            cv_txtDebug.setText("Error in play tone(" + e.getMessage() + ")");
+        }
+    }
+
+    private void cpf_EV3GNote() {
+        try {
+            byte[] buffer = new byte[17];       // 0x0f command length
+
+            buffer[0] = (byte) (17-2);
+            buffer[1] = 0;
+
+            buffer[2] = 34;
+            buffer[3] = 12;
+
+            buffer[4] = (byte) 0x80;
+
+            buffer[5] = 0;
+            buffer[6] = 0;
+
+            buffer[7] = (byte) 0x94;
+            buffer[8] = 1;
+
+            buffer[9] = (byte) 0x81;
+            buffer[10] = (byte) 0x80;
+
+            buffer[11] = (byte) 0x82;
+            buffer[12] = (byte) 0x88;
+            buffer[13] = (byte) 0x01;
+
+            buffer[14] = (byte) 0x82;
+            buffer[15] = (byte) 0xe8;
+            buffer[16] = (byte) 0x03;
+
+            cv_os.write(buffer);
+            cv_os.flush();
+        }
+        catch (Exception e) {
+            cv_txtDebug.setText("Error in play tone(" + e.getMessage() + ")");
+        }
+    }
+
+    private void cpf_EV3CSharpNote() {
+        try {
+            byte[] buffer = new byte[17];       // 0x0f command length
+
+            buffer[0] = (byte) (17-2);
+            buffer[1] = 0;
+
+            buffer[2] = 34;
+            buffer[3] = 12;
+
+            buffer[4] = (byte) 0x80;
+
+            buffer[5] = 0;
+            buffer[6] = 0;
+
+            buffer[7] = (byte) 0x94;
+            buffer[8] = 1;
+
+            buffer[9] = (byte) 0x81;
+            buffer[10] = (byte) 0x80;
+
+            buffer[11] = (byte) 0x82;
+            buffer[12] = (byte) 0x15;
+            buffer[13] = (byte) 0x01;
+
+            buffer[14] = (byte) 0x82;
+            buffer[15] = (byte) 0xe8;
+            buffer[16] = (byte) 0x03;
+
+            cv_os.write(buffer);
+            cv_os.flush();
+        }
+        catch (Exception e) {
+            cv_txtDebug.setText("Error in play tone(" + e.getMessage() + ")");
+        }
+    }
+
+    private void cpf_EV3DSharpNote() {
+        try {
+            byte[] buffer = new byte[17];       // 0x0f command length
+
+            buffer[0] = (byte) (17-2);
+            buffer[1] = 0;
+
+            buffer[2] = 34;
+            buffer[3] = 12;
+
+            buffer[4] = (byte) 0x80;
+
+            buffer[5] = 0;
+            buffer[6] = 0;
+
+            buffer[7] = (byte) 0x94;
+            buffer[8] = 1;
+
+            buffer[9] = (byte) 0x81;
+            buffer[10] = (byte) 0x80;
+
+            buffer[11] = (byte) 0x82;
+            buffer[12] = (byte) 0x37;
+            buffer[13] = (byte) 0x01;
+
+            buffer[14] = (byte) 0x82;
+            buffer[15] = (byte) 0xe8;
+            buffer[16] = (byte) 0x03;
+
+            cv_os.write(buffer);
+            cv_os.flush();
+        }
+        catch (Exception e) {
+            cv_txtDebug.setText("Error in play tone(" + e.getMessage() + ")");
+        }
+    }
+
+    private void cpf_EV3FSharpNote() {
+        try {
+            byte[] buffer = new byte[17];       // 0x0f command length
+
+            buffer[0] = (byte) (17-2);
+            buffer[1] = 0;
+
+            buffer[2] = 34;
+            buffer[3] = 12;
+
+            buffer[4] = (byte) 0x80;
+
+            buffer[5] = 0;
+            buffer[6] = 0;
+
+            buffer[7] = (byte) 0x94;
+            buffer[8] = 1;
+
+            buffer[9] = (byte) 0x81;
+            buffer[10] = (byte) 0x80;
+
+            buffer[11] = (byte) 0x82;
+            buffer[12] = (byte) 0x72;
+            buffer[13] = (byte) 0x01;
+
+            buffer[14] = (byte) 0x82;
+            buffer[15] = (byte) 0xe8;
+            buffer[16] = (byte) 0x03;
+
+            cv_os.write(buffer);
+            cv_os.flush();
+        }
+        catch (Exception e) {
+            cv_txtDebug.setText("Error in play tone(" + e.getMessage() + ")");
+        }
+    }
+
+    private void cpf_EV3GSharpNote() {
+        try {
+            byte[] buffer = new byte[17];       // 0x0f command length
+
+            buffer[0] = (byte) (17-2);
+            buffer[1] = 0;
+
+            buffer[2] = 34;
+            buffer[3] = 12;
+
+            buffer[4] = (byte) 0x80;
+
+            buffer[5] = 0;
+            buffer[6] = 0;
+
+            buffer[7] = (byte) 0x94;
+            buffer[8] = 1;
+
+            buffer[9] = (byte) 0x81;
+            buffer[10] = (byte) 0x80;
+
+            buffer[11] = (byte) 0x82;
+            buffer[12] = (byte) 0x9F;
+            buffer[13] = (byte) 0x01;
+
+            buffer[14] = (byte) 0x82;
+            buffer[15] = (byte) 0xe8;
+            buffer[16] = (byte) 0x03;
+
+            cv_os.write(buffer);
+            cv_os.flush();
+        }
+        catch (Exception e) {
+            cv_txtDebug.setText("Error in play tone(" + e.getMessage() + ")");
+        }
+    }
+
+    private void cpf_EV3ASharpNote() {
+        try {
+            byte[] buffer = new byte[17];       // 0x0f command length
+
+            buffer[0] = (byte) (17-2);
+            buffer[1] = 0;
+
+            buffer[2] = 34;
+            buffer[3] = 12;
+
+            buffer[4] = (byte) 0x80;
+
+            buffer[5] = 0;
+            buffer[6] = 0;
+
+            buffer[7] = (byte) 0x94;
+            buffer[8] = 1;
+
+            buffer[9] = (byte) 0x81;
+            buffer[10] = (byte) 0x80;
+
+            buffer[11] = (byte) 0x82;
+            buffer[12] = (byte) 0xD2;
+            buffer[13] = (byte) 0x01;
+
+            buffer[14] = (byte) 0x82;
+            buffer[15] = (byte) 0xe8;
+            buffer[16] = (byte) 0x03;
+
+            cv_os.write(buffer);
+            cv_os.flush();
+        }
+        catch (Exception e) {
+            cv_txtDebug.setText("Error in play tone(" + e.getMessage() + ")");
+        }
+    }
+
+    private void cpf_playFile() {
+        try {
+            // Relative path to "Yes" file in the "Sounds" folder
+            String filePath = "../Sounds/Yes";
+            byte[] filePathBytes = filePath.getBytes("US-ASCII");
+            // Command length = filePathBytes.length + 9 (for the other command parts, including the null terminator for the string)
+            int commandLength = filePathBytes.length + 9;
+            byte[] buffer = new byte[commandLength];
+
+            // Length of the command (little-endian)
+            buffer[0] = (byte) (commandLength - 2);
+            buffer[1] = 0;
+
+            // Message counter (unused, so set to 0)
+            buffer[2] = 0;
+            buffer[3] = 0;
+
+            // Command type (direct command with reply)
+            buffer[4] = (byte) 0x80;
+
+            // System command to play a sound file
+            buffer[5] = (byte) 0x94;
+            buffer[6] = 0x02; // Play command
+
+            // Volume
+            buffer[7] = (byte) 0x81; // Parameter format for a single byte (Volume)
+            buffer[8] = (byte) 100; // Volume level
+
+            // File path (copy filePathBytes into buffer, followed by a null terminator)
+            System.arraycopy(filePathBytes, 0, buffer, 9, filePathBytes.length);
+            buffer[commandLength - 1] = 0; // Null terminator for the string
+
+            cv_os.write(buffer);
+            cv_os.flush();
+        } catch (Exception e) {
+            cv_txtDebug.setText("Error in playFile(" + e.getMessage() + ")");
+        }
+    }
+
 }
